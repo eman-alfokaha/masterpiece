@@ -1,0 +1,114 @@
+﻿@model onlinemarketing.Models.product
+
+@{
+    ViewBag.Title = "CreateAdd";
+    Layout = null;
+}
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+-->
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <title>Desk Login form Responsive Widget Template :: W3layouts</title>
+    <!-- Meta tag Keywords -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8" />
+    <meta name="keywords"
+          content="Desk Login form Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <!-- //Meta tag Keywords -->
+
+    <link href="//fonts.googleapis.com/css?family=Mukta:200,300,400,500,600,700,800" rel="stylesheet">
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <!--/Style-CSS -->
+    @*<link rel="stylesheet" href="css/style.css" type="text/css" media="all" />*@
+    <link href="~/Content/img/style.css" rel="stylesheet" />
+    <!--//Style-CSS -->
+</head>
+<body>
+   
+   
+    <form>
+        @using (Html.BeginForm("CreateAdd", "User", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+
+
+            <div class="form-group">
+                <div class="input-group">
+                    @Html.DropDownListFor(x => x.pro_user_id_fk, ViewBag.categorylist as SelectList, "--select--", new { @class = "form-control" })
+
+                </div>
+                <span style="color:red">@Html.ValidationMessageFor(x => x.pro_user_id_fk)</span>
+
+            </div>
+        <div class="form-group">
+            <div class="input-group">
+                @Html.TextBoxFor(x => x.pro_name, new { @class = "form-control", @placeholder = "prodect name" })
+
+            </div>
+            <span style="color:red">@Html.ValidationMessageFor(x => x.pro_name)</span>
+
+        </div>
+
+        <div class="form-group">
+            <div class="input-group">
+                @Html.TextBoxFor(x => x.pro_price, new { @class = "form-control", @placeholder = "price" })
+
+            </div>
+            <span style="color:red">@Html.ValidationMessageFor(x => x.pro_price)</span>
+
+        </div>
+
+
+        <div class="form-group">
+            <div class="input-group">
+                @Html.TextBoxFor(x => x.pro_desc, new { @class = "form-control", @placeholder = "Discription" })
+
+            </div>
+            <span style="color:red">@Html.ValidationMessageFor(x => x.pro_desc)</span>
+
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+                <input type="file" name="imgfile" id="imgfile" class="input" required />
+
+            </div>
+
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+                <input type="submit" value="Add" class="btn btn-success btn-block " />
+
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            <p style="color:red">@ViewBag.error</p>
+
+        </div>
+        }
+    </form>
+   
+</body>
+
+
+
+</html>
+<script src="~/Scripts/jquery.validate-vsdoc.js"></script>
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+@section Scripts
+    {
+
+    @Scripts.Render("~/bundles/jqueryval")
+
+}
+
+
